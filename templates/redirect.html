@@ -1,0 +1,16 @@
+<!--Pagina para evitar el bug que provoca que no se cargen datos
+tras logearse-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+    <form id="aux_form" action="/main_zone" method="post">
+    </form>
+    <script type="text/javascript">
+        document.getElementById('aux_form').submit();
+    </script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{zone_title}}</title>
+    <style>
+        body            {background-color: black;}
+        h1              {color: #a7a765;}
+        p               {color: white;}
+        i               {color: #904040;}
+        .button         {navbutton_background_color: #b68c69;
+                        border: 2px solid #b6a569;}
+        .element        {height: 100%;
+                        width: 50%;
+                        position: fixed;
+                        z-index: 1;
+                        top: 0;
+                        overflow-x: hidden;
+                        padding-top: 20px;}
+        .left           {left: 0;
+                        margin-left: 50px}
+        .right          {right: 0;
+                        margin-right: -10%}
+    </style>
+</head>
+<body>
+    <div class="element left">
+        <h1><b>{{zone_title}}</b></h1>
+        <p>{{zone_text}}</p>
+        <p><i>{{pollen}}: {{pollen_percent}} %</i></p>
+        {% for button in zone_buttons %}
+        <form action="/new_zone" method="get" target="_blank">
+            <input type="hidden" id="option" name="option" value={{zone_buttons[button]}}>
+            <button type="submit" class="button" formmethod="post">{{button}}</button>
+        </form>
+        {% endfor %}
+        <form action="/main_zone" method="get" target="_blank">
+            <button type="submit" class="button" formmethod="post">{{main_menu}}</button>
+        </form>
+    </div>
+    <div class="element right">
+        <img src="{{zone_img}}" alt="Could not load {{zone_img}}">
+    </div>
+</body>
+</html>

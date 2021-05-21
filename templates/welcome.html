@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{greeting}}</title>
+    <style>
+        body            {background-color: black;}
+        h1              {color: #a7a765;}
+        p               {color: white;}
+        .button         {navbutton_background_color: #b68c69;
+                        border: 2px solid #b6a569;}
+        .element        {height: 100%;
+                        width: 50%;
+                        position: fixed;
+                        z-index: 1;
+                        top: 0;
+                        overflow-x: hidden;
+                        padding-top: 20px;}
+        .left           {left: 0;
+                        margin-left: 50px}
+        .right          {right: 0;
+                        margin-right: -10%}
+    </style>
+</head>
+<body>
+     <div class="element left">
+        <h1>{{greeting}}, {{user_name}}</h1>
+         <p>{{menu_text}}</p>
+        <form id="new_game_form" action="/new_game" method="post">
+            <input type="hidden" id="new_game" name="new_game" value="intro">
+            <button type="submit" class="button" value="Empezar de nuevo">{{new_game_text}}</button>
+        </form>
+        <form id="continue_form" action="/load_game" method="post">
+            <input type="hidden" id="continue" name="continue" value="load">
+            <button type="submit" class="button" value="Continuar">{{load_game_text}}</button>
+        </form>
+        <br>
+        {{current_lang}}: {{lang}}
+        <form id="lang_form" action="/change_lang" method="post">
+            <input type="hidden" id="lang" name="cambiar_idioma" value="load">
+            <button type="submit" class="button" value="cambiar_idioma">{{change_lang}}</button>
+        </form>
+        <br>
+        <a href={{logout_url}}>{{logout}}</a>.
+     </div>
+     <div class="element right">
+         <img src="images/menu.jpeg" alt="Could not load images/menu.jpeg">
+     </div>
+</body>
+</html>
